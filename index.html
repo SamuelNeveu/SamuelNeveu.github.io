@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio Samuel</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul class="link-group">
+            <li class="link active" value="1"><a href="#">home</a></li>
+            <li class="link" value="2"><a href="#">projects</a></li>
+            <!-- <li class="link"><a href="#">about</a></li> -->
+            <li class="link" value="3"><a href="#">about</a></li>
+        </ul>
+    </nav>
+    <section class="home-section active">
+        <h1 class="hero-heading">Bonjour<br><small>Welcome</small></h1>
+        <p class="home-text">I'm Samuel, 22 years old, Junior developper<br>I'm I programming since 4 years and having interest in lot of other points : Video game modding, computer graphics, computer assisted music, guitare, sport<small> sometimes</small><br><br>J'aime apprendre
+            et vais au bout des choses.</p>
+        <img src="img/home-profil.jpg" class="home-img" alt="oups">
+    </section>
+    <!-- project section -->
+    <section class="project-section" id="projet">
+        <h1 class="project-heading">some projects</h1>
+        <div class="project-container">
+            <div class="project-card">
+                <img src="img/fractal.jpg" class="project-img" alt="">
+                <div class="project-content">
+                    <h1 class="project-title">Fractal JS</h1>
+                    <p class="project-info">
+                        JS - HTML - CSS<br>2021<br>Fractal mandelbrot algorithm in javascript<small><br>Without optimization better use on smartphone</small>
+                    </p>
+                    <div class="project-btn-grp">
+                        <button class="project-btn github" onclick="window.open('https://github.com/SamuelNeveu/Fractol-JS', '_blank');">github repo</button>
+                        <button class="project-btn live" onclick="window.open(
+                            `http://wac.ovh`,
+                            '_blank'
+                          );">see live</button>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="img/engine-0.png" class="project-img" alt="" id="engine">
+                <div class="project-content">
+                    <h1 class="project-title">3D Engine</h1>
+                    <p class="project-info">
+                        C<br>3D engine build in C with SDL2<br>Use for modelize .obj file in 3D environement<br>Multi-threading optimization
+                    </p>
+                    <div class="project-btn-grp">
+                        <button class="project-btn github" onclick="window.open('https://github.com/FindTheFox/3D_Engine', '_blank');">github repo</button>
+                        <!-- <button class="project-btn live">see live</button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="img/doom-1.png" class="project-img" alt="" id="doomImg">
+                <div class="project-content">
+                    <h1 class="project-title">Doom</h1>
+                    <p class="project-info">
+                        C<br>Doom Nukem game like using raycasting method<br>First person shooter<br>Optimization with multi-threading
+                    </p>
+                    <div class="project-btn-grp">
+                        <button class="project-btn github" onclick="window.open('https://github.com/SamuelNeveu/DoomNukem', '_blank');">github repo</button>
+                        <!-- <button class="project-btn live">see live</button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="img/fractal-3.png" class="project-img" alt="" id="fractalC">
+                <div class="project-content">
+                    <h1 class="project-title">Fractal C</h1>
+                    <p class="project-info">
+                        Fractals algorithms in C<br>Optimized with multi-threading<br>Mandelbrot, Julia and 8 other algorithms<br>Multiples coloring palette and algorithms
+                    </p>
+                    <div class="project-btn-grp">
+                        <button class="project-btn github" onclick="window.open('https://github.com/SamuelNeveu/Fractal', '_blank');">github repo</button>
+                        <!-- <button class="project-btn live">see live</button> -->
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript" src='fractalSwitcher.js'></script>
+        </div>
+    </section>
+
+    <!-- about section -->
+    <section class="about-section">
+        <!-- skills -->
+        <div class="skill-section_show">
+            <h1 class="heading">skills</h1>
+            <div class="skill-container">
+                <div class="skill-card">
+                    <img src="img/c.png" class="skill-img" alt="">
+                    <div class="skill-level">80%</div>
+                    <h1 class="skill-name">C/C++</h1>
+                    <p class="skill-info">My first and favorite programming language</p>
+                </div>
+                <div class="skill-card">
+                    <img src="img/js.png" class="skill-img" alt="">
+                    <div class="skill-level">70%</div>
+                    <h1 class="skill-name">JS</h1>
+                    <p class="skill-info">jquery, Express, NodeJS</p>
+                </div>
+                <div class="skill-card">
+                    <img src="img/html.png" class="skill-img" alt="">
+                    <div class="skill-level">75%</div>
+                    <h1 class="skill-name">HTML</h1>
+                    <p class="skill-info"></p>
+                </div>
+                <div class="skill-card">
+                    <img src="img/css.png" class="skill-img" alt="">
+                    <div class="skill-level">50%</div>
+                    <h1 class="skill-name">CSS</h1>
+                    <p class="skill-info"></p>
+                </div>
+                <div class="skill-card">
+                    <img src="img/sql.png" class="skill-img" alt="">
+                    <div class="skill-level">30%</div>
+                    <h1 class="skill-name">sql</h1>
+                    <p class="skill-info"></p>
+                </div>
+                <div class="skill-card">
+                    <img src="img/visual.png" class="skill-img" alt="">
+                    <div class="skill-level">80%</div>
+                    <h1 class="skill-name">Visual Studio Code</h1>
+                    <p class="skill-info">PhpStrom</p>
+                </div>
+            </div>
+        </div>
+        <div class="skill-section hideme">
+            <h1 class="heading">soft skills</h1>
+            <div class="skill-container">
+                <div class="skill-card">
+                    <img src="img/github.png" class="skill-img" alt="">
+                    <div class="skill-level">--</div>
+                    <h1 class="skill-name">GIT</h1>
+                    <p class="skill-info">github, Gitkraken</p>
+                </div>
+                <div class="skill-card">
+                    <img src="img/scrum.png" class="skill-img" alt="">
+                    <div class="skill-level">--</div>
+                    <h1 class="skill-name">Methodologie agile</h1>
+                    <p class="skill-info"></p>
+                </div>
+                <div class="skill-card">
+                    <img src="img/optimize.png" class="skill-img" alt="">
+                    <div class="skill-level">--</div>
+                    <h1 class="skill-name">Architecture de code</h1>
+                    <p class="skill-info"></p>
+                </div>
+                <div class="skill-card">
+                    <img src="img/teamwork.png" class="skill-img" alt="">
+                    <div class="skill-level">--</div>
+                    <h1 class="skill-name">Travail en équipe</h1>
+                    <p class="skill-info"></p>
+                </div>
+                <!-- <div class="skill-card">
+                    <img src="img/sql.png" class="skill-img" alt="">
+                    <div class="skill-level">30%</div>
+                    <h1 class="skill-name">sql</h1>
+                    <p class="skill-info"></p>
+                </div>
+                <div class="skill-card">
+                    <img src="img/visual.png" class="skill-img" alt="">
+                    <div class="skill-level">80%</div>
+                    <h1 class="skill-name">Visual Studio Code</h1>
+                    <p class="skill-info">PhpStrom</p>
+                </div> -->
+            </div>
+            <!-- timeline -->
+            <div class="timeline hideme">
+                <h1 class="heading">education and experience</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">2018</h1>
+                        <p class="card-detail"><strong> - lycée bréquigny - </strong><br>Terminale STI2D<br>Piscine Ecole 42 Paris</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">2018-2020</h1>
+                        <p class="card-detail"><strong> - Ecole 42 Paris - </strong><br>Scolarité cursus Architecte en technologie du numérique</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">2021</h1>
+                        <p class="card-detail"><strong> - Rennes - </strong><br>Technicien système et réseau - FranceTv, RadioFrance</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">Novembre 2021 - aujourd'hui</h1>
+                        <p class="card-detail"><strong> - Epitech Rennes - </strong><br>Cursus en 2 années<br>Intégrateur web et mobile</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">2022</h1>
+                        <p class="card-detail">Réalisation d'un projet d'alternance dans le cadre de ma deuxième année.<br><strong>Ceci validera ma derniere année et me permettra de commencer une vie professionel.</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about">
+                <p class="about-info">email : samuel.neveugall@yahoo.fr<br>Téléphone : 07 82 21 67 79</p>
+                <button class="download-cv-btn">downlaod cv</button>
+            </div>
+    </section>
+
+
+</body>
+<script type='text/javascript' src='app.js'></script>
+
+</html>
