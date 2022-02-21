@@ -37,3 +37,7 @@ $(window).scroll(function() {
     });
 
 });
+
+function goCV() {
+    window.location.replace("./CV/srt-resume.html");
+}
