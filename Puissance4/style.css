@@ -1,0 +1,68 @@
+body {
+  background-color: #3f3f3f;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.playerScore {
+  color: aliceblue;
+  border-radius: 8%;
+  height: 100%;
+  width: 100px;
+  margin: 0 auto;
+  color: black;
+}
+
+.reset {
+  background-color: aqua;
+  border-radius: 8%;
+  height: 100%;
+  width: 100px;
+  margin: 0 auto;
+}
+
+.area {
+  background-color: #5e5eff;
+  width: 1200px;
+  height: 800px;
+  margin: 2% 0;
+}
+
+.area_container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#win {
+  background-color: aquamarine;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  width: 25%;
+  margin: 1% auto;
+}
+
+#round {
+  background-color: aquamarine;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  width: 25%;
+  height: 50px;
+  margin: 1% auto;
+}
+/*# sourceMappingURL=style.css.map */
