@@ -256,7 +256,6 @@ function pick_best_move(grid, game) {
         // console.log('BEFORE IN MAP', game.grid.map[col][row].use);
         let tmp_grid = Object.assign({}, grid);
         tmp_grid.map[col][row].use == game.ia;
-        console.log('AFTER', game.grid.map[col][row].use);
 
         let score = scorePosition(game, tmp_grid, col, row);
         if (score < 0) {
