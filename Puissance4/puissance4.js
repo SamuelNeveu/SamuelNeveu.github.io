@@ -1,4 +1,5 @@
 import { frame, endFrame } from './confetti.js';
+import { playIA } from './minmax.js';
 var audio = new Audio('./asset/iwon.mp3');
 
 class Player {
@@ -35,18 +36,26 @@ class Game {
         this.colors = colors;
         this.round = 0;
         this.run = true;
+        this.ia = -1;
+        this.currPlayer = 0;
+        this.grid = null;
+        this.round = -1;
 
         this.player = [];
         for (let i = 0; colors[i]; i++) {
+            if (colors[i] == "#3BD2D6") {
+                this.ia = i;
+            }
             this.player.push(new Player(colors[i], i));
         }
     }
 
     updateRound() {
         this.round++;
-        let currPlayer = this.round % this.nb_player;
-        $('#round').html('Round : ' + this.round + '<br>Player ' + (currPlayer + 1));
-        $('#round').css('background-color', this.player[currPlayer].color);
+        this.currPlayer = this.round % this.nb_player;
+
+        $('#round').html('Round : ' + this.round + '<br>Player ' + (this.currPlayer + 1));
+        $('#round').css('background-color', this.player[this.currPlayer].color);
     }
 }
 
@@ -111,27 +120,42 @@ function animateFill(ctx, grid, col, i, color, x) {
     }
 }
 
-function fillCase(grid, col, color, playerId, game) {
-    let canvas = $('.area').get(0);
-    let ctx = canvas.getContext("2d");
+export function isValidCol(grid, col) {
+    console.log('fill--> col: ', col, 'grid',
+        grid);
 
-    let i = grid.map[col].length - 1;
-    while (i >= 0 && grid.map[col][i].use != -1) {
+    let i = grid.h - 1;
+    console.log('i', i, col);
+    while (i > 0 && grid.map[col][i].use != -1) {
         --i;
     }
     if (i >= 0) {
-        grid.map[col][i].use = playerId;
-        animateFill(ctx, grid, col, i, color, 0);
-        check_win(grid, playerId, col, i, game);
-        if (isCaseFull(grid)) {
-            egality(game);
-            return false
-        }
-        return true;
+        return i;
+    } else {
+        return -1;
     }
-    return false;
 }
 
+export function fillCase(grid, col, color, playerId, game) {
+    let canvas = $('.area').get(0);
+    let ctx = canvas.getContext("2d");
+
+    // console.log('fill--> col: ', col, grid);
+
+    let row = 0;
+    if ((row = isValidCol(grid, col)) == -1) {
+        console.log('col full');
+        return 'Col Full';
+    }
+    grid.map[col][row].use = playerId;
+    animateFill(ctx, grid, col, row, color, 0);
+    check_win(grid, playerId, col, row, game);
+    if (isCaseFull(grid)) {
+        egality(game);
+        return false
+    }
+    return true;
+}
 
 
 function check_hori(grid, currPlayer, x, y) {
@@ -241,6 +265,7 @@ function check_win(grid, currPlayer, x, y, game) {
 }
 
 
+
 (function($) {
     $.fn.puissance4 = function(options) {
         let row = options.width < 4 ? 4 : options.width;
@@ -250,27 +275,48 @@ function check_win(grid, currPlayer, x, y, game) {
         let colors = options.player;
         let nb_player = options.player.length;
         let game = new Game(nb_player, colors);
+        game.grid = grid;
         game.updateRound();
         displayScore(game);
 
         $('.area').on('click', (e) => {
             if (game.run == true) {
                 let mouseX = e.pageX - $(this).offset().left;
-                let mouseY = e.pageY - $(this).offset().top;
-
+                // let mouseY = e.pageY - $(this).offset().top;
+                // console.log(e.pageX);
                 let currCol = 0;
-                while (mouseX > grid.stepX * currCol) {
+
+                // Choisi le joueur et sa couleur  
+                let currPlayer = game.currPlayer;
+                // calcul la colone selectionnée
+                while (mouseX > game.grid.stepX * currCol) {
                     currCol++;
                 }
-                let currPlayer = game.round % game.nb_player;
-                if (fillCase(grid, currCol - 1, game.player[currPlayer].color, game.player[currPlayer].id, game))
+                if (fillCase(game.grid, currCol - 1, game.player[currPlayer].color, game.player[currPlayer].id, game) != 'Col Full') {
+
                     game.updateRound();
+                    if (game.currPlayer == game.ia && game.run) {
+                        setTimeout(function() {
+                            playIA(game);
+                        }, 300);
+                    }
+
+                }
             }
         });
 
+
         $('.reset').on('click', () => {
-            grid = new Grid(row, col);
+            game.grid = new Grid(row, col);
             game.run = true;
+            game.round = 0;
+            game.currPlayer = Math.floor(Math.random() * (game.nb_player));
+            if (game.currPlayer == game.ia) {
+                setTimeout(function() {
+                    playIA(game);
+                }, 300);
+            }
+            // console.log(game.currPlayer, game.nb_player);
             endFrame();
             $('#win').html('');
         })
@@ -289,9 +335,10 @@ function displayScore(game) {
     }
 }
 
-let joueur1 = '#ff0000';
-let joueur2 = '#FFD700';
-let joueur3 = "#00FF00";
-let joueur4 = "#0000ff";
-
-$('.area').puissance4({ width: 7, height: 6, player: [joueur1, joueur2] })
+let rouge = '#ff0000';
+let jaune = '#FFD700';
+let vert = "#00FF00";
+let bleu = "#0000ff";
+let rose = "#F45086";
+let IA = "#3BD2D6";
+$('.area').puissance4({ width: 7, height: 6, player: [rouge, IA] })
