@@ -230,3 +230,8 @@ a#pdf:hover {
 .yui-gf div.first {
     width: 12.3%;
 }
+
+.profilcard {
+    display: flex;
+    position: relative;
+}
