@@ -197,7 +197,7 @@ body {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  opacity: 0.2;
+  opacity: 0.7;
 }
 
 @media screen and (min-width: 900px) {
@@ -207,11 +207,11 @@ body {
 }
 
 .home-text {
-  margin-left: 20%;
+  margin-right: 20%;
   font-size: 20px;
   line-height: 30px;
   color: #fff;
-  text-align: center;
+  text-align: justify;
 }
 
 .hero-heading {
@@ -511,5 +511,10 @@ small {
   font-size: 30px;
   font-weight: 300;
   margin-bottom: 20px;
+}
+
+#Pdp {
+  width: 100px;
+  height: 100px;
 }
 /*# sourceMappingURL=style.css.map */
