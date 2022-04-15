@@ -235,3 +235,12 @@ a#pdf:hover {
     display: flex;
     position: relative;
 }
+
+#pdp {
+    width: 300px;
+    margin-right: 5%;
+}
+
+#ft {
+    align-items: center;
+}
