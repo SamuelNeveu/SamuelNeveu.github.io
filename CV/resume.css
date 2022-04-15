@@ -56,11 +56,6 @@ body {
     letter-spacing: 2px;
 }
 
-#bd,
-#ft {
-    margin-bottom: 2em;
-}
-
 
 /* //-- footer -- */
 
@@ -128,6 +123,7 @@ p.enlarge {
     font-size: 120%;
     padding-right: 6.5em;
     line-height: 24px;
+    padding-bottom: 3%;
 }
 
 p.enlarge span {
@@ -239,6 +235,7 @@ a#pdf:hover {
 #pdp {
     width: 300px;
     margin-right: 5%;
+    height: 190px;
 }
 
 #ft {
