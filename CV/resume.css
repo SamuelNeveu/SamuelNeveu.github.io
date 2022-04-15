@@ -232,7 +232,7 @@ a#pdf:hover {
 }
 
 #pdp {
-    width: 300px;
+    min-width: 270px;
     margin-right: 5%;
     height: 180px;
 }
